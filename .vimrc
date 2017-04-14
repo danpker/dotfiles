@@ -3,6 +3,7 @@ colorscheme badwolf
 " font
 set guifont=Menlo\ Regular:h13
 
+" add ruler
 set ruler
 
 " Enable syntax hilighting
@@ -12,6 +13,7 @@ syntax enable
 set softtabstop=4
 set expandtab
 set shiftwidth=4
+
 " File Type specific
 filetype plugin on
 
@@ -21,23 +23,20 @@ set relativenumber
 set showcmd
 set cursorline
 filetype indent on
+
+" Cmd completion
 set wildmenu
+
+" For perf
 set lazyredraw
+
+" Show matching braces
 set showmatch
 
 " Searching
 set incsearch
 set hlsearch
 " nnoremap <leader><space> :nohlsearch<CR>
-
-" Folding
-set foldenable
-set foldlevelstart=99
-nnoremap <space> za
-set foldmethod=indent
-
-" Leader
-let mapleader=","
 
 " Ctrl P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -66,9 +65,6 @@ let g:syntastic_rust_checkers = ['rustc']
 
 execute pathogen#infect()
 map <C-n> :NERDTreeToggle<CR>
-
-" Esc
-imap jj <Esc>
 
 " Remove trailing whitespace when saving.
 autocmd FileType python autocmd BufWritePre %s/\s\+$//
