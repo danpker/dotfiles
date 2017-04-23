@@ -13,6 +13,7 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 export PATH="/usr/local/sbin:$PATH"
 export PATH="${HOME}/.cargo/bin:$PATH"
 export PATH="$PATH:$(yarn global bin)"
+export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 
 # delete branches that are merged into master & develop
 clean_merged() {
