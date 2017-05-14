@@ -20,3 +20,7 @@ clean_merged() {
     git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d
 }
 
+# Remove .orig files
+function clear_orig {
+    find . -name '*.orig' -delete
+}
