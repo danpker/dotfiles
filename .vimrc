@@ -7,7 +7,12 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " font
-set guifont=Menlo\ Regular:h13
+if has("gui_macvim")
+    " set macvim specific stuff
+    set macligatures
+endif
+
+set guifont=Fira\ Code:h14
 
 " add ruler
 set ruler
@@ -102,3 +107,8 @@ endif
 
 " Backspace
 set backspace=indent,eol,start
+
+" Powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
