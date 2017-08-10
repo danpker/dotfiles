@@ -12,7 +12,7 @@ if has("gui_macvim")
     set macligatures
 endif
 
-set guifont=Fira\ Code:h14
+set guifont=Fira\ Code:h15
 
 " add ruler
 set ruler
@@ -81,7 +81,18 @@ execute pathogen#infect()
 map <C-n> :NERDTreeToggle<CR>
 
 " Remove trailing whitespace when saving.
-autocmd FileType python autocmd BufWritePre %s/\s\+$//
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+" Using file extension
+autocmd BufWritePre *.py,*.js,*.jsx,*.rs,*.logic :call <SID>StripTrailingWhitespaces()
+
+" Often files are not necessarily identified by extension, if so use e.g.:
+autocmd BufWritePre * if &ft =~ 'sh\|rust\|python\|javascript' | :call <SID>StripTrailingWhitespaces() | endif
 
 " Remove scrollbars
 set guioptions= 
@@ -112,3 +123,5 @@ set backspace=indent,eol,start
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
+" Keep it there all the time
+set laststatus=2

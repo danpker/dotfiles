@@ -14,7 +14,6 @@ fi
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="${HOME}/.cargo/bin:$PATH"
-export PATH="$PATH:$(yarn global bin)"
 export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 
 # delete branches that are merged into master & develop
@@ -26,3 +25,8 @@ clean_merged() {
 function clear_orig {
     find . -name '*.orig' -delete
 }
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
