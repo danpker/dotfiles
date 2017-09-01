@@ -1,5 +1,8 @@
 colorscheme dracula
 
+" remap jj to esc
+:imap jj <Esc>
+
 " take off the training wheels
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -55,44 +58,11 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_checkers = ['pep8']
-
 " enable JSX highlighting in JS files
 let g:jsx_ext_required = 0
 
-" Rust
-autocmd FileType rust let g:syntastic_rust_checkers = ['rustc']
-let g:syntastic_rust_rustc_exe = 'cargo check'
-let g:syntastic_rust_rustc_fname = ''
-let g:syntastic_rust_rustc_args = '--'
-let g:syntastic_rust_checkers = ['rustc']
-
 execute pathogen#infect()
 map <C-n> :NERDTreeToggle<CR>
-
-" Remove trailing whitespace when saving.
-function! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-
-" Using file extension
-autocmd BufWritePre *.py,*.js,*.jsx,*.rs,*.logic :call <SID>StripTrailingWhitespaces()
-
-" Often files are not necessarily identified by extension, if so use e.g.:
-autocmd BufWritePre * if &ft =~ 'sh\|rust\|python\|javascript' | :call <SID>StripTrailingWhitespaces() | endif
 
 " Remove scrollbars
 set guioptions= 
@@ -119,9 +89,15 @@ endif
 " Backspace
 set backspace=indent,eol,start
 
-" Powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+" Air line
+let g:airline_powerline_fonts = 1
 " Keep it there all the time
 set laststatus=2
+
+" VIM ALE
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+let g:ale_python_flake8_executable = $VIRTUAL_ENV . '/bin/flake8'
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
