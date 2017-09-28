@@ -15,7 +15,7 @@ if has("gui_macvim")
     set macligatures
 endif
 
-set guifont=Fira\ Code:h15
+set guifont=Fira\ Code:h14
 
 " add ruler
 set ruler
@@ -93,6 +93,7 @@ set backspace=indent,eol,start
 let g:airline_powerline_fonts = 1
 " Keep it there all the time
 set laststatus=2
+let g:airline_theme='dracula'
 
 " VIM ALE
 " Set this. Airline will handle the rest.
@@ -101,3 +102,6 @@ let g:ale_python_flake8_executable = $VIRTUAL_ENV . '/bin/flake8'
 let g:ale_linters = {
 \   'python': ['flake8'],
 \}
+
+" Nicer split line
+set fillchars=vert:\ ,stl:\ ,stlnc:\ 
