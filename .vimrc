@@ -31,6 +31,9 @@ set shiftwidth=4
 " File Type specific
 filetype plugin on
 
+" Line length
+set colorcolumn=80
+
 " Visuals
 set number
 set relativenumber
