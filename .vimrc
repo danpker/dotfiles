@@ -1,3 +1,14 @@
+call plug#begin('~/.vim/plugged')
+Plug 'sheerun/vim-polyglot'
+Plug 'w0rp/ale'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'christoomey/vim-tmux-navigator'
+call plug#end()
+
 colorscheme dracula
 
 " remap jj to esc
@@ -39,13 +50,9 @@ set number
 set relativenumber
 set showcmd
 set cursorline
-filetype indent on
 
 " Cmd completion
 set wildmenu
-
-" For perf
-set lazyredraw
 
 " Show matching braces
 set showmatch
@@ -55,16 +62,11 @@ set incsearch
 set hlsearch
 " nnoremap <leader><space> :nohlsearch<CR>
 
-" Ctrl P
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+nmap ; :GFiles<CR>
 
 " enable JSX highlighting in JS files
 let g:jsx_ext_required = 0
 
-execute pathogen#infect()
 map <C-n> :NERDTreeToggle<CR>
 
 " Remove scrollbars
@@ -108,3 +110,7 @@ let g:ale_linters = {
 
 " Nicer split line
 set fillchars=vert:\ ,stl:\ ,stlnc:\ 
+" Colours
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
