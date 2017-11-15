@@ -7,6 +7,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 colorscheme dracula
@@ -62,12 +63,13 @@ set incsearch
 set hlsearch
 " nnoremap <leader><space> :nohlsearch<CR>
 
-nmap ; :GFiles<CR>
+nmap <C-n> :Files<CR>
+nmap <C-m> :Ag<CR>
 
 " enable JSX highlighting in JS files
 let g:jsx_ext_required = 0
 
-map <C-n> :NERDTreeToggle<CR>
+map <C-\> :NERDTreeToggle<CR>
 
 " Remove scrollbars
 set guioptions= 
@@ -114,3 +116,19 @@ set fillchars=vert:\ ,stl:\ ,stlnc:\
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" Get fzf to follow my colour scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
