@@ -18,6 +18,16 @@ white="\[$(tput setaf 7)\]"
 title="\u@\h: \w"
 titlebar="\[\033]0;"$title"\007\]"
 
+# MacOS stuff
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="${HOME}/.cargo/bin:$PATH"
+export PATH="/usr/bin:$PATH"
+export PATH="/usr/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
+
 # Git branch
 git_branch() {
       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)\ /';
@@ -35,11 +45,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
-# MacOS stuff
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="${HOME}/.cargo/bin:$PATH"
-export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 
 # delete branches that are merged into master & develop
 clean_merged() {
