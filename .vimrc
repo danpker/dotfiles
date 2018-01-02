@@ -69,7 +69,7 @@ nmap <C-m> :Ag<CR>
 " enable JSX highlighting in JS files
 let g:jsx_ext_required = 0
 
-map <C-\> :NERDTreeToggle<CR>
+map <C-/> :NERDTreeToggle<CR>
 
 " Remove scrollbars
 set guioptions= 
