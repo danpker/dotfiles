@@ -51,9 +51,12 @@ clean_merged() {
     git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d
 }
 
-# Remove .orig files
-function clear_orig {
-    find . -name '*.orig' -delete
+# Remove specififed file type
+function purge {
+    echo "Purging .$1 files"
+    num_cleared=$(find . -name *.$1 | wc -l)
+    echo "Deleting $num_cleared files"
+    find . -name *.$1 -delete
 }
 
 # NVM
