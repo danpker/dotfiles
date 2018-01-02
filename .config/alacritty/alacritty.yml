@@ -23,8 +23,8 @@ dimensions:
 # Units are physical pixels; this is not DPI aware.
 # (change requires restart)
 padding:
-  x: 2
-  y: 2
+  x: 4
+  y: 4
 
 # Display tabs using this many cells (changes require restart)
 tabspaces: 8
@@ -176,6 +176,8 @@ cursor_style: Block
 
 # Live config reload (changes require restart)
 live_config_reload: true
+
+borderless: true
 
 # Shell
 #
@@ -376,7 +378,6 @@ key_bindings:
   - { key: Z,        mods: Alt|Shift, chars: "\x1bZ"                       }
   - { key: Key1,     mods: Alt,       chars: "\x1b1"                       }
   - { key: Key2,     mods: Alt,       chars: "\x1b2"                       }
-  - { key: Key3,     mods: Alt,       chars: "\x1b3"                       }
   - { key: Key4,     mods: Alt,       chars: "\x1b4"                       }
   - { key: Key5,     mods: Alt,       chars: "\x1b5"                       }
   - { key: Key6,     mods: Alt,       chars: "\x1b6"                       }
