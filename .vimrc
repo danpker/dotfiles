@@ -3,11 +3,11 @@ Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 colorscheme dracula
@@ -68,8 +68,6 @@ nmap <C-m> :Ag<CR>
 
 " enable JSX highlighting in JS files
 let g:jsx_ext_required = 0
-
-map <C-/> :NERDTreeToggle<CR>
 
 " Remove scrollbars
 set guioptions= 
