@@ -2,6 +2,7 @@
 #export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
+export EDITOR=nvim
 alias ls='ls -GFh'
 
 # Colors
@@ -54,9 +55,9 @@ clean_merged() {
 # Remove specififed file type
 function purge {
     echo "Purging .$1 files"
-    num_cleared=$(find . -name *.$1 | wc -l)
+    num_cleared=$(find . -name "*.$1" | wc -l)
     echo "Deleting $num_cleared files"
-    find . -name *.$1 -delete
+    find . -name "*.$1" -delete
 }
 
 # NVM
