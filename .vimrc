@@ -8,9 +8,12 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
-colorscheme dracula
+colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark='hard'
 
 " remap jj to esc
 :imap jj <Esc>
@@ -98,7 +101,11 @@ set backspace=indent,eol,start
 let g:airline_powerline_fonts = 1
 " Keep it there all the time
 set laststatus=2
-let g:airline_theme='dracula'
+let g:airline_theme='gruvbox'
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
 
 " VIM ALE
 " Set this. Airline will handle the rest.
@@ -130,3 +137,5 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+autocmd FileType make setlocal noexpandtab

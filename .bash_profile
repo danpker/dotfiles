@@ -29,23 +29,17 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 
-# Git branch
-git_branch() {
-      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)\ /';
-}
-
 # Clear attributes
 clear_attributes="\[$(tput sgr0)\]"
 
 # Custom bash prompt - "➜  ~ (master) "
-export PS1="${titlebar}${green}> ${blue}\W ${cyan}\$(git_branch)${clear_attributes}"
+export PS1="${titlebar}${orange}➜ ${yellow}\W ${clear_attributes}"
 
 export HISTFILESIZE=25000
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
-
 
 # delete branches that are merged into master & develop
 clean_merged() {
