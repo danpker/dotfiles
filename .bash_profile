@@ -33,7 +33,7 @@ export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 clear_attributes="\[$(tput sgr0)\]"
 
 # Custom bash prompt - "➜  ~ (master) "
-export PS1="${titlebar}${orange}➜ ${yellow}\W ${clear_attributes}"
+export PS1="${titlebar}${orange}➜ ${blue}\W ${clear_attributes}"
 
 export HISTFILESIZE=25000
 
