@@ -22,6 +22,13 @@ If `stow` isn't available, you can just use a normal symlink.
 
 ## Further install
 
+### Homebrew
+
+Homebrew can be installed from https://brew.sh
+
+Install a base set of packages from `brew.txt` using: 
+`<brew.txt xargs brew install`
+
 ### Vim
 
 Vim uses `vim-plug` to manage packages so you will have to run `:PlugInstall`

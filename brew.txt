@@ -1,0 +1,14 @@
+bash
+fzf
+gcc
+git
+htop
+irssi
+kubernetes-cli
+kubernetes-helm
+neovim
+python3
+stow
+the_silver_searcher
+tmux
+tree
