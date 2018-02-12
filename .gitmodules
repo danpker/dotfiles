@@ -1,3 +1,6 @@
 [submodule "tmux/.tmux/plugins/tpm"]
 	path = tmux/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "nvm/.nvm"]
+	path = nvm/.nvm
+	url = git@github.com:creationix/nvm.git
