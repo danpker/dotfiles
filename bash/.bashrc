@@ -35,8 +35,8 @@ export PS1="${titlebar}${orange}➜ ${blue}\W ${clear_attributes}"
 
 export HISTFILESIZE=25000
 
-if [ -x $(brew --version) ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
+if [ -x "$(brew --version)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
+    source $(brew --prefix)/etc/bash_completion
 fi
 
 # delete branches that are merged into master & develop
