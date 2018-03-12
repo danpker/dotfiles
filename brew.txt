@@ -7,7 +7,6 @@ irssi
 kubernetes-cli
 kubernetes-helm
 neovim
-nvm
 python3
 stow
 the_silver_searcher
