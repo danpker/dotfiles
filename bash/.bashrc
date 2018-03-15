@@ -27,11 +27,16 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 
+# Git branch
+git_branch() {
+      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)\ /';
+}
+
 # Clear attributes
 clear_attributes="\[$(tput sgr0)\]"
 
 # Custom bash prompt - "➜  ~ (master) "
-export PS1="${titlebar}${orange}➜ ${blue}\W ${clear_attributes}"
+export PS1="${titlebar}${orange}➜ ${blue}\W ${cyan}\$(git_branch)${clear_attributes}"
 
 export HISTFILESIZE=25000
 
@@ -41,7 +46,7 @@ fi
 
 # delete branches that are merged into master & develop
 clean_merged() {
-    git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d
+    git branch --merged | egrep -v "(^\*|master|stable)" | xargs git branch -d
 }
 
 # Remove specififed file type
