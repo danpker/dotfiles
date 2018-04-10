@@ -9,6 +9,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
+Plug 'junegunn/goyo.vim'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 colorscheme gruvbox
@@ -17,6 +19,9 @@ let g:gruvbox_contrast_dark='hard'
 
 " remap jj to esc
 :imap jj <Esc>
+
+" set leader
+let mapleader = ','
 
 " take off the training wheels
 noremap <Up> <NOP>
@@ -64,10 +69,12 @@ set showmatch
 " Searching
 set incsearch
 set hlsearch
-" nnoremap <leader><space> :nohlsearch<CR>
 
-nmap <C-n> :Files<CR>
-nmap <C-m> :Ag<CR>
+" easy hot keys around comma
+nmap <leader>k :Files<CR>
+nmap <leader>m :Ag<CR>
+nmap <leader>l :TagbarToggle<CR>
+nmap <leader>. :nohlsearch<CR>
 
 " enable JSX highlighting in JS files
 let g:jsx_ext_required = 0
