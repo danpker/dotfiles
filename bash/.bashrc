@@ -38,7 +38,8 @@ clear_attributes="\[$(tput sgr0)\]"
 # Custom bash prompt - "➜  ~ (master) "
 export PS1="${titlebar}${orange}➜ ${blue}\W ${cyan}\$(git_branch)${clear_attributes}"
 
-export HISTFILESIZE=25000
+export HISTSIZE=
+export HISTFILESIZE=
 
 if [ -x "$(command -v brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion
