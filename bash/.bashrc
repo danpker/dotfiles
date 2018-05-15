@@ -36,7 +36,7 @@ git_branch() {
 clear_attributes="\[$(tput sgr0)\]"
 
 # Custom bash prompt - "➜  ~ (master) "
-export PS1="${titlebar}${orange}➜ ${blue}\W ${cyan}\$(git_branch)${clear_attributes}"
+export PS1="${titlebar}${orange}> ${blue}\W ${cyan}\$(git_branch)${clear_attributes}"
 
 export HISTSIZE=
 export HISTFILESIZE=
