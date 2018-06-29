@@ -1,0 +1,18 @@
+# Git branch
+git_branch() {
+      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)\ /';
+}
+
+# delete branches that are merged into master & develop
+clean_merged() {
+    git branch --merged | egrep -v "(^\*|master|stable)" | xargs git branch -d
+}
+
+# Remove specififed file type
+function purge {
+    echo "Purging .$1 files"
+    num_cleared=$(find . -name "*.$1" | wc -l)
+    echo "Deleting $num_cleared files"
+    find . -name "*.$1" -delete
+}
+
