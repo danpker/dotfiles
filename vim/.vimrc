@@ -11,6 +11,7 @@ Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/goyo.vim'
 Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 colorscheme gruvbox
@@ -137,3 +138,4 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 autocmd FileType make setlocal noexpandtab
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 noexpandtab
