@@ -138,4 +138,4 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 autocmd FileType make setlocal noexpandtab
-autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 noexpandtab
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
