@@ -12,6 +12,8 @@ Plug 'morhetz/gruvbox'
 Plug 'junegunn/goyo.vim'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'tikhomirov/vim-glsl'
 call plug#end()
 
 colorscheme gruvbox
@@ -112,7 +114,9 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_python_flake8_executable = $VIRTUAL_ENV . '/bin/flake8'
 let g:ale_linters = {
 \   'python': ['flake8'],
+\   'rust': ['cargo', 'rls'],
 \}
+let g:ale_rust_cargo_use_check = 1
 
 " Nicer split line
 set fillchars=vert:\ ,stl:\ ,stlnc:\ 
@@ -139,3 +143,19 @@ let g:fzf_colors =
 
 autocmd FileType make setlocal noexpandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
+autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
+
+function! StripTrailingWhitespace()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " do the business:
+    %s/\s\+$//e
+    " clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+" syntax highlighting for gl shaders
+autocmd! BufNewFile,BufRead *.vs,*.fs,*.glslf,*.glslv set ft=glsl
