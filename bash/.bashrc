@@ -6,10 +6,6 @@ if [ -f ~/.functions ]; then
     source ~/.functions
 fi
 
-if [ -f ~/n ]; then
-    source ~/n
-fi
-
 if [ -x "$(command -v brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion
 fi
