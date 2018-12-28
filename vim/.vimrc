@@ -14,6 +14,7 @@ Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tikhomirov/vim-glsl'
+Plug 'ambv/black'
 call plug#end()
 
 colorscheme gruvbox
@@ -74,6 +75,7 @@ set incsearch
 set hlsearch
 
 " easy hot keys around comma
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 nmap <leader>k :Files<CR>
 nmap <leader>m :Ag<CR>
 nmap <leader>l :TagbarToggle<CR>
@@ -115,6 +117,10 @@ let g:ale_python_flake8_executable = $VIRTUAL_ENV . '/bin/flake8'
 let g:ale_linters = {
 \   'python': ['flake8'],
 \   'rust': ['cargo', 'rls'],
+\}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'rust': ['rustfmt']
 \}
 let g:ale_rust_cargo_use_check = 1
 
