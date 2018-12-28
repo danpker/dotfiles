@@ -2,7 +2,7 @@
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 export EDITOR=nvim
-alias ls='ls -GFh'
+alias ll='ls -lah'
 
 # Colors
 black="\[$(tput setaf 0)\]"
@@ -70,3 +70,6 @@ nvminit() {
             . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
     fi
 }
+
+# Give grep some colour
+export GREP_OPTIONS="--color"
