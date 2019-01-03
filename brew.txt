@@ -8,7 +8,7 @@ kubernetes-cli
 kubernetes-helm
 neovim
 python3
+ripgrep
 stow
-the_silver_searcher
 tmux
 tree

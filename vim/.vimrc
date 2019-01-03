@@ -15,6 +15,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tikhomirov/vim-glsl'
 Plug 'ambv/black'
+Plug 'mhinz/vim-startify'
 call plug#end()
 
 colorscheme gruvbox
@@ -77,7 +78,7 @@ set hlsearch
 " easy hot keys around comma
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 nmap <leader>k :Files<CR>
-nmap <leader>m :Ag<CR>
+nmap <leader>m :Rg<CR>
 nmap <leader>l :TagbarToggle<CR>
 nmap <leader>. :nohlsearch<CR>
 
