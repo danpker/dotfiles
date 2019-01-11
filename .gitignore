@@ -3,3 +3,5 @@ vim/.vim/plugged
 irssi/.irssi/config
 vim/.vim/.netrwhist
 vim/.vim/autoload/plug.vim.old
+vim/.vim/black
+vim/.vim/spell
