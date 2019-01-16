@@ -3,7 +3,6 @@ fzf
 gcc
 git
 htop
-irssi
 kubernetes-cli
 kubernetes-helm
 neovim
