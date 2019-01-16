@@ -14,8 +14,6 @@ Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tikhomirov/vim-glsl'
-Plug 'ambv/black'
-Plug 'mhinz/vim-startify'
 call plug#end()
 
 colorscheme gruvbox
