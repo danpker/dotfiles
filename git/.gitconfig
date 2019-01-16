@@ -1,0 +1,29 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Daniel Parker
+	email = danpker@gmail.com
+[core]
+	excludesfile = $HOME/.gitignore_global
+	editor = vim
+[color "diff"]
+	old = red strike
+	new = green italic
+[alias]
+  c = checkout
+  ci = commit
+  s = status
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+[merge]
+	tool = mvimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
