@@ -4,7 +4,7 @@
 	name = Daniel Parker
 	email = danpker@gmail.com
 [core]
-	excludesfile = $HOME/.gitignore_global
+	excludesfile = /Users/danielparker/.gitignore_global
 	editor = vim
 [color "diff"]
 	old = red strike

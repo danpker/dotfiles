@@ -13,3 +13,8 @@ fi
 if [ -f ~/.fzf.bash ]; then
     source ~/.fzf.bash
 fi
+
+export NOTION_HOME="$HOME/.notion"
+[ -s "$NOTION_HOME/load.sh" ] && \. "$NOTION_HOME/load.sh"
+
+export PATH="${NOTION_HOME}/bin:$PATH"

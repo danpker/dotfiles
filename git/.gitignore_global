@@ -3,3 +3,5 @@
 *.swp
 *.orig
 node_modules/
+venv/
+venv3/

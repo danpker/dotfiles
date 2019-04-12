@@ -14,6 +14,7 @@ Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tikhomirov/vim-glsl'
+Plug 'ambv/black'
 call plug#end()
 
 colorscheme gruvbox
@@ -164,3 +165,6 @@ endfunction
 
 " syntax highlighting for gl shaders
 autocmd! BufNewFile,BufRead *.vs,*.fs,*.glslf,*.glslv set ft=glsl
+
+" auto wrapping for .md
+au BufRead,BufNewFile *.md setlocal textwidth=80
