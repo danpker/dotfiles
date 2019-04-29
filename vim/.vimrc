@@ -17,6 +17,8 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'ambv/black'
 call plug#end()
 
+let g:black_linelength = 79
+
 colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark='hard'
@@ -168,3 +170,4 @@ autocmd! BufNewFile,BufRead *.vs,*.fs,*.glslf,*.glslv set ft=glsl
 
 " auto wrapping for .md
 au BufRead,BufNewFile *.md setlocal textwidth=80
+
