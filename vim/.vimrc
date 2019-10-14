@@ -15,11 +15,12 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tikhomirov/vim-glsl'
 Plug 'ambv/black'
+Plug 'vim-scripts/Wombat'
 call plug#end()
 
 let g:black_linelength = 79
 
-colorscheme gruvbox
+colorscheme wombat
 set background=dark
 let g:gruvbox_contrast_dark='hard'
 
@@ -41,7 +42,7 @@ if has("gui_macvim")
     set macligatures
 endif
 
-set guifont=Fira\ Code:h14
+set guifont=Fira\ Code\ Retina:h14
 
 " add ruler
 set ruler
@@ -87,7 +88,7 @@ nmap <leader>. :nohlsearch<CR>
 let g:jsx_ext_required = 0
 
 " Remove scrollbars
-set guioptions= 
+set guioptions=
 
 " Easier split navigation
 nnoremap <C-J> <C-W><C-J>
@@ -106,7 +107,7 @@ set backspace=indent,eol,start
 let g:airline_powerline_fonts = 1
 " Keep it there all the time
 set laststatus=2
-let g:airline_theme='gruvbox'
+let g:airline_theme='wombat'
 let g:airline_right_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_left_alt_sep= ''
@@ -129,7 +130,7 @@ let g:ale_rust_cargo_use_clippy = 1
 let g:ale_rust_cargo_use_check = 1
 
 " Nicer split line
-set fillchars=vert:\ ,stl:\ ,stlnc:\ 
+set fillchars=vert:\ ,stl:\ ,stlnc:\
 " Colours
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -172,4 +173,5 @@ autocmd! BufNewFile,BufRead *.vs,*.fs,*.glslf,*.glslv set ft=glsl
 
 " auto wrapping for .md
 au BufRead,BufNewFile *.md setlocal textwidth=80
-
+" auto spell for markdown
+au BufRead,BufNewFile *.md setlocal spell
