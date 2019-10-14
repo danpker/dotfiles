@@ -16,3 +16,7 @@ function purge {
     find . -name "*.$1" -delete
 }
 
+
+function rmb {
+    git branch --merged | grep -v "master" | grep -v "dev" | grep -v "develop" | while read i; do git branch -d $i; done;
+}
