@@ -1,6 +1,4 @@
-# This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
 	name = Daniel Parker
 	email = danpker@gmail.com
 [core]
@@ -10,16 +8,15 @@
 	old = red strike
 	new = green italic
 [alias]
-  c = checkout
-  ci = commit
-  s = status
-  br = branch
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  type = cat-file -t
-  dump = cat-file -p
-	lol = log --oneline --graph --decorate
+        c = checkout
+        ci = commit
+        s = status
+        br = branch
+        type = cat-file -t
+        dump = cat-file -p
+        lol = log --oneline --graph --decorate
 [merge]
-	tool = mvimdiff
+	tool = vimdiff
 	conflictstyle = diff3
 [mergetool]
 	prompt = false

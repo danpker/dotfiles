@@ -20,7 +20,3 @@ function purge {
 function rmb {
     git branch --merged | grep -v "master" | grep -v "dev" | grep -v "develop" | while read i; do git branch -d $i; done;
 }
-
-function resolve {
-    git mergetool --tool=vimdiff
-}
