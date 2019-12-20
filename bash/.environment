@@ -64,3 +64,9 @@ fi
 
 # Give grep some colour
 export GREP_OPTIONS="--color"
+
+
+# IBM
+export DYLD_LIBRARY_PATH=/opt/mqm/lib64
+export PATH="/opt/mqm/bin:$PATH"
+export PATH="/opt/mqm/samp/bin:$PATH"
