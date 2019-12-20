@@ -12,13 +12,13 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/Wombat'
 Plug 'w0rp/ale'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 let g:black_linelength = 79
 
-colorscheme wombat
+colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark='hard'
 
@@ -116,8 +116,8 @@ let g:airline_left_sep = ''
 let g:airline#extensions#ale#enabled = 1
 let g:ale_python_flake8_executable = $VIRTUAL_ENV . '/bin/flake8'
 let g:ale_linters = {
-\   'python': ['flake8'],
-\   'rust': ['cargo'],
+\   'python': ['flake8', 'pyls'],
+\   'rust': ['cargo', 'rls'],
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -126,6 +126,8 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_rust_cargo_use_clippy = 1
 let g:ale_rust_cargo_use_check = 1
+
+nmap <leader>d :ALEGoToDefinition<CR>
 
 " Nicer split line
 set fillchars=vert:\ ,stl:\ ,stlnc:\
