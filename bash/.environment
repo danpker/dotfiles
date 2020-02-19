@@ -49,10 +49,12 @@ export FZF_DEFAULT_OPTS='
 '
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-# USe brew version of open ssl headers
-OPENSSL_PREFIX="$(brew --prefix openssl)"
-export OPENSSL_INCLUDE_DIR="${OPENSSL_PREFIX}/include"
-export OPENSSL_LIB_DIR="${OPENSSL_PREFIX}/lib"
+if [ -x "$(command -v brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
+    # USe brew version of open ssl headers
+    OPENSSL_PREFIX="$(brew --prefix openssl)"
+    export OPENSSL_INCLUDE_DIR="${OPENSSL_PREFIX}/include"
+    export OPENSSL_LIB_DIR="${OPENSSL_PREFIX}/lib"
+fi
 
 if [ -x "$(command -v rustc)" ]; then
     export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"

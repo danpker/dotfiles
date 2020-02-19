@@ -20,3 +20,18 @@ function purge {
 function rmb {
     git branch --merged | grep -v "master" | grep -v "dev" | grep -v "develop" | while read i; do git branch -d $i; done;
 }
+
+function run_until_fail {
+    $@
+    while [ $? -eq 0 ]; do
+        $@
+    done
+}
+
+# Connect to Mech via plain ssh without python wrapping it
+function mssh () {
+    temp_file=$(mktemp)
+    mech ssh-config > ${temp_file}
+    ssh -F ${temp_file} mech
+    rm ${temp_file}
+}
