@@ -1,6 +1,7 @@
 [user]
 	name = Daniel Parker
 	email = danpker@gmail.com
+	signingkey = C7EFAD84A69CD8AA
 [core]
 	excludesfile = /Users/danielparker/.gitignore_global
 	editor = vim
@@ -25,3 +26,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[commit]
+	gpgsign = true
