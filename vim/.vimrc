@@ -7,13 +7,13 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'majutsushi/tagbar'
+Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'tikhomirov/vim-glsl'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
-Plug 'morhetz/gruvbox'
 call plug#end()
 
 let g:black_linelength = 79
@@ -40,7 +40,7 @@ if has("gui_macvim")
     set macligatures
 endif
 
-set guifont=Fira\ Code\ Retina:h14
+set guifont=Pragmata\ Pro\ Mono:h20
 
 " add ruler
 set ruler
@@ -81,7 +81,8 @@ nmap <leader>k :Files<CR>
 nmap <leader>m :Rg<CR>
 nmap <leader>l :TagbarToggle<CR>
 nmap <leader>. :nohlsearch<CR>
-
+nmap <leader>d :ALEGoToDefinition<CR>
+nmap <leader>f :ALEFix<CR>
 " enable JSX highlighting in JS files
 let g:jsx_ext_required = 0
 
@@ -121,13 +122,13 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'rust': ['remove_trailing_lines', 'trim_whitespace', 'rustfmt']
+\   'rust': ['remove_trailing_lines', 'trim_whitespace', 'rustfmt'],
+\   'elixir': ['remove_trailing_lines', 'trim_whitespace', 'mix_format']
 \}
 let g:ale_fix_on_save = 1
 let g:ale_rust_cargo_use_clippy = 1
 let g:ale_rust_cargo_use_check = 1
 
-nmap <leader>d :ALEGoToDefinition<CR>
 
 " Nicer split line
 set fillchars=vert:\ ,stl:\ ,stlnc:\
