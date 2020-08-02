@@ -1,15 +1,13 @@
 call plug#begin('~/.vim/plugged')
 Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
-Plug 'tikhomirov/vim-glsl'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline-themes'
@@ -21,6 +19,12 @@ let g:black_linelength = 79
 colorscheme gruvbox
 set background=dark
 let g:gruvbox_contrast_dark='hard'
+
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 " remap jj to esc
 :imap jj <Esc>
@@ -38,12 +42,9 @@ noremap <Right> <NOP>
 if has("gui_macvim")
     " set macvim specific stuff
     set macligatures
+    set linespace=2
+    set guifont=Pragmata\ Pro\ Mono:h15
 endif
-
-set guifont=Pragmata\ Pro\ Mono:h20
-
-" add ruler
-set ruler
 
 " Enable syntax hilighting
 syntax enable
@@ -153,9 +154,9 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-autocmd FileType make setlocal noexpandtab
-autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
-autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
+" autocmd FileType make setlocal noexpandtab
+" autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
+" autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
 
 function! StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
@@ -168,9 +169,6 @@ function! StripTrailingWhitespace()
     let @/=_s
     call cursor(l, c)
 endfunction
-
-" syntax highlighting for gl shaders
-autocmd! BufNewFile,BufRead *.vs,*.fs,*.glslf,*.glslv set ft=glsl
 
 " auto wrapping for .md
 au BufRead,BufNewFile *.md setlocal textwidth=80
