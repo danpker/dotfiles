@@ -1,7 +1,7 @@
 # Add some color
 export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
 export EDITOR=nvim
+export LSCOLORS=exfxcxdxbxegedabagacad
 alias ll='ls -lah'
 
 # Colors
@@ -21,26 +21,25 @@ titlebar="\[\033]0;"$title"\007\]"
 # Clear attributes
 clear_attributes="\[$(tput sgr0)\]"
 
-# MacOS stuff
-export PATH="/usr/local/sbin:$PATH"
-export PATH="${HOME}/.cargo/bin:$PATH"
-export PATH="/usr/bin:$PATH"
-export PATH="/usr/sbin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
-
 # Custom bash prompt - "➜  ~ (master) "
 export PS1="${titlebar}${orange}> ${blue}\W ${cyan}\$(git_branch)${clear_attributes}"
 
 # don't put duplicate lines or lines starting with space in the  history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
-# append to the history
-export HISTSIZE=1000
-export HISTFILESIZE=200000
+# append to the history file, don't overwrite it
+shopt -s histappend
+# append and reload the history after each command
+PROMPT_COMMAND="history -a; history -n"
 
-export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+# ignore certain commands from the history
+HISTIGNORE="ls:ll:cd:pwd:bg:fg:history"
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=100000
+HISTFILESIZE=10000000
+
+export FZF_DEFAULT_COMMAND='rg --nocolor -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='
@@ -49,26 +48,5 @@ export FZF_DEFAULT_OPTS='
 '
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-if [ -x "$(command -v brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
-    # USe brew version of open ssl headers
-    OPENSSL_PREFIX="$(brew --prefix openssl)"
-    export OPENSSL_INCLUDE_DIR="${OPENSSL_PREFIX}/include"
-    export OPENSSL_LIB_DIR="${OPENSSL_PREFIX}/lib"
-fi
-
-if [ -x "$(command -v rustc)" ]; then
-    export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-fi
-
-if [[ -s $HOME/.rvm/scripts/rvm ]]; then
-  source $HOME/.rvm/scripts/rvm;
-fi
-
 # Give grep some colour
 export GREP_OPTIONS="--color"
-
-
-# IBM
-export DYLD_LIBRARY_PATH=/opt/mqm/lib64
-export PATH="/opt/mqm/bin:$PATH"
-export PATH="/opt/mqm/samp/bin:$PATH"

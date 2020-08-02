@@ -3,11 +3,6 @@ git_branch() {
       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)\ /';
 }
 
-# delete branches that are merged into master & develop
-clean_merged() {
-    git branch --merged | egrep -v "(^\*|master|stable)" | xargs git branch -d
-}
-
 # Remove specififed file type
 function purge {
     echo "Purging .$1 files"
@@ -16,8 +11,7 @@ function purge {
     find . -name "*.$1" -delete
 }
 
-
-function rmb {
+function clean_merged {
     git branch --merged | grep -v "master" | grep -v "dev" | grep -v "develop" | while read i; do git branch -d $i; done;
 }
 
@@ -34,4 +28,16 @@ function mssh () {
     mech ssh-config > ${temp_file}
     ssh -F ${temp_file} mech
     rm ${temp_file}
+}
+
+function memphis_ip () {
+    vmrun -T fusion getGuestIPAddress "/Users/danielparker/Virtual Machines.localized/Ubuntu 64-bit Server 20.04.vmwarevm/Ubuntu 64-bit Server 20.04.vmx" -wait
+}
+
+function memphis_start () {
+    vmrun start "/Users/danielparker/Virtual Machines.localized/Ubuntu 64-bit Server 20.04.vmwarevm/Ubuntu 64-bit Server 20.04.vmx" nogui
+}
+
+function memphis_stop () {
+    vmrun stop "/Users/danielparker/Virtual Machines.localized/Ubuntu 64-bit Server 20.04.vmwarevm/Ubuntu 64-bit Server 20.04.vmx"
 }
