@@ -1,6 +1,4 @@
-if [ -f ~/.bashrc ]; then
-   source ~/.bashrc
-fi
+source ~/.bashrc
 
 # MacOS stuff
 export PATH="/usr/local/sbin:$PATH"
@@ -11,13 +9,6 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 
-# Python pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
 # Homebrew
 OPENSSL_PREFIX="/usr/local/opt/openssl@1.1"
 if [ -f ${OPENSSL_PREFIX} ]; then
@@ -26,9 +17,10 @@ if [ -f ${OPENSSL_PREFIX} ]; then
 fi
 
 # Rust
-if [ -x "$(command -v rustc)" ]; then
-    export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-fi
+# if [ -x "$(command -v rustc)" ]; then
+#     export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+# fi
+export RUST_SRC_PATH="/Users/danielparker/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -41,3 +33,10 @@ fi
 if [ -f '/Users/danielparker/google-cloud-sdk/path.bash.inc' ]; then . '/Users/danielparker/google-cloud-sdk/path.bash.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/danielparker/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/danielparker/google-cloud-sdk/completion.bash.inc'; fi
+
+# Python pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init - --no-rehash)"
+fi

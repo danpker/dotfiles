@@ -33,7 +33,7 @@ shopt -s histappend
 PROMPT_COMMAND="history -a; history -n"
 
 # ignore certain commands from the history
-HISTIGNORE="ls:ll:cd:pwd:bg:fg:history"
+HISTIGNORE="ls:ll:cd:pwd:bg:fg:history:exit"
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=100000
