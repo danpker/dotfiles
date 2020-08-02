@@ -19,11 +19,8 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # Homebrew
-if [ -f /user/local/etc/bash_completion ]; then
-    # USe brew version of open ssl headers
-    # OPENSSL_PREFIX="$(brew --prefix openssl)"
-    # Hard coding this because it's slow
-    OPENSSL_PREFIX="/usr/local/opt/openssl@1.1"
+OPENSSL_PREFIX="/usr/local/opt/openssl@1.1"
+if [ -f ${OPENSSL_PREFIX} ]; then
     export OPENSSL_INCLUDE_DIR="${OPENSSL_PREFIX}/include"
     export OPENSSL_LIB_DIR="${OPENSSL_PREFIX}/lib"
 fi
