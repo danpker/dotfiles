@@ -12,6 +12,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 let g:black_linelength = 79
@@ -76,11 +77,23 @@ set showmatch
 set incsearch
 set hlsearch
 
-" easy hot keys around comma
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+" RipGrep fast
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+" FZF status line
+autocmd! FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
 nmap <leader>k :Files<CR>
-nmap <leader>m :Rg<CR>
-nmap <leader>l :TagbarToggle<CR>
+nmap <leader>m :RG<CR>
+nmap <leader>l :Tags<CR>
 nmap <leader>. :nohlsearch<CR>
 nmap <leader>d :ALEGoToDefinition<CR>
 nmap <leader>f :ALEFix<CR>
@@ -172,5 +185,22 @@ endfunction
 
 " auto wrapping for .md
 au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.wiki setlocal textwidth=80
 " auto spell for markdown
 au BufRead,BufNewFile *.md setlocal spell
+au BufRead,BufNewFile *.wiki setlocal spell
+
+let g:python_host_prog = '~/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '~/.pyenv/versions/neovim3/bin/python'
+
+" vimwiki
+let wiki = {}
+let wiki.path = '~/Documents/wiki/'
+let wiki.path_html = '~/Documents/wiki_html'
+let wiki.list_margin = 4
+let wiki.auto_toc = 1
+let wiki.auto_diary_index = 1
+let wiki.auto_generate_links = 1
+let wiki.auto_generate_tags = 1
+let wiki.auto_tags = 1
+let g:vimwiki_list = [wiki]
