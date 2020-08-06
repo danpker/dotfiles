@@ -1,4 +1,17 @@
-# Git branch
+# Vim wiki
+alias wiki='vim "+VimwikiIndex" "+cd ~/Documents/wiki"'
+alias j='vim "+VimwikiMakeDiaryNote" "+cd ~/Documents/wiki"'
+
+# Append input to journal
+function ja {
+    echo - $(date "+%H:%M") $@ >> ~/Documents/wiki/diary/$(date "+%Y-%m-%d").wiki
+}
+
+function jw {
+    echo - $(date "+%H:%M") :work: $@ >> ~/Documents/wiki/diary/$(date "+%Y-%m-%d").wiki
+}
+
+# # Git branch
 git_branch() {
       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)\ /';
 }
@@ -40,4 +53,8 @@ function memphis_start () {
 
 function memphis_stop () {
     vmrun stop "/Users/danielparker/Virtual Machines.localized/Ubuntu 64-bit Server 20.04.vmwarevm/Ubuntu 64-bit Server 20.04.vmx"
+}
+
+function cb () {
+    git checkout $(git branch | fzf-tmux -d 15)
 }
