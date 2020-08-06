@@ -4,5 +4,5 @@ IFS=
 REPO_NAME=$(basename `git rev-parse --show-toplevel`)
 BODY=$(git log -1 --format=format:"%b" | awk 'NF' | awk '{print "    - " $0}')
 
-echo - $(date "+%H:%M") $(git log -1 --format=format:"\`%h\` %s") >> ~/Documents/wiki/diary/$(date "+%Y-%m-%d").wiki
+echo - $(date "+%H:%M") [$(basename `git rev-parse --show-toplevel`)] $(git log -1 --format=format:"\`%h\` %s") >> ~/Documents/wiki/diary/$(date "+%Y-%m-%d").wiki
 echo $BODY >> ~/Documents/wiki/diary/$(date "+%Y-%m-%d").wiki
