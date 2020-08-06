@@ -186,6 +186,7 @@ endfunction
 " auto wrapping for .md
 au BufRead,BufNewFile *.md setlocal textwidth=80
 au BufRead,BufNewFile *.wiki setlocal textwidth=80
+autocmd BufRead,BufNewFile *.wiki setlocal foldmethod=indent
 " auto spell for markdown
 au BufRead,BufNewFile *.md setlocal spell
 au BufRead,BufNewFile *.wiki setlocal spell
