@@ -4,11 +4,11 @@ alias j='vim "+VimwikiMakeDiaryNote" "+cd ~/Documents/wiki"'
 
 # Append input to journal
 function ja {
-    echo \* \`$(date "+%H:%M")\` - $@ >> ~/Documents/wiki/diary/$(date "+%Y-%m-%d").wiki
+    echo \* \`$(date "+%H:%M")\` - $@ >> ~/Documents/wiki/diary/$(date "+%Y-%m-%d").md
 }
 
 function jw {
-    echo \* \`$(date "+%H:%M")\` - :work: $@ >> ~/Documents/wiki/diary/$(date "+%Y-%m-%d").wiki
+    echo \* \`$(date "+%H:%M")\` - :work: $@ >> ~/Documents/wiki/diary/$(date "+%Y-%m-%d").md
 }
 
 # # Git branch

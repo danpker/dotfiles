@@ -12,7 +12,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
-Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 call plug#end()
 
 let g:black_linelength = 79
@@ -195,8 +195,10 @@ let g:python_host_prog = '~/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '~/.pyenv/versions/neovim3/bin/python'
 
 " vimwiki
-let wiki = {}
-let wiki.path = '~/Documents/wiki/'
+let g:vimwiki_global_ext = 0
+let wiki = {'syntax': 'markdown'}
+let wiki.ext = '.md'
+let wiki.path = '~/Documents/wiki'
 let wiki.path_html = '~/Documents/wiki_html'
 let wiki.list_margin = 4
 let wiki.auto_toc = 1
