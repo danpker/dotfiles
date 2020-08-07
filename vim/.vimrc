@@ -206,4 +206,6 @@ let wiki.auto_diary_index = 1
 let wiki.auto_generate_links = 1
 let wiki.auto_generate_tags = 1
 let wiki.auto_tags = 1
+let wiki.html_filename_parameterization = 1
+let wiki.custom_wiki2html = 'vimwiki_markdown'
 let g:vimwiki_list = [wiki]

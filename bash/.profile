@@ -28,6 +28,9 @@ if [[ -s $HOME/.rvm/scripts/rvm ]]; then
   source $HOME/.rvm/scripts/rvm;
 fi
 
+export GO_PATH="/Users/danielparker/go"
+export PATH="$GO_PATH/bin:$PATH"
+
 # GCP
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/danielparker/google-cloud-sdk/path.bash.inc' ]; then . '/Users/danielparker/google-cloud-sdk/path.bash.inc'; fi
