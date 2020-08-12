@@ -13,6 +13,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+Plug 'michal-h21/vim-zettel'
 call plug#end()
 
 let g:black_linelength = 79
@@ -184,8 +185,8 @@ function! StripTrailingWhitespace()
 endfunction
 
 " auto wrapping for .md
-au BufRead,BufNewFile *.md setlocal textwidth=80
-au BufRead,BufNewFile *.wiki setlocal textwidth=80
+" au BufRead,BufNewFile *.md setlocal textwidth=80
+" au BufRead,BufNewFile *.wiki setlocal textwidth=80
 autocmd BufRead,BufNewFile *.wiki setlocal foldmethod=indent
 " auto spell for markdown
 au BufRead,BufNewFile *.md setlocal spell
@@ -198,9 +199,9 @@ let g:python3_host_prog = '~/.pyenv/versions/neovim3/bin/python'
 let g:vimwiki_global_ext = 0
 let wiki = {'syntax': 'markdown'}
 let wiki.ext = '.md'
-let wiki.path = '~/Documents/wiki'
-let wiki.path_html = '~/Documents/wiki_html'
-let wiki.list_margin = 4
+let wiki.path = '~/Dropbox/wiki'
+let wiki.path_html = '~/Dropbox/wiki_html'
+let wiki.list_margin = 0
 let wiki.auto_toc = 1
 let wiki.auto_diary_index = 1
 let wiki.auto_generate_links = 1
