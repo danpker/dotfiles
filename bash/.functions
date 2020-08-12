@@ -1,14 +1,14 @@
 # Vim wiki
-alias wiki='vim "+VimwikiIndex" "+cd ~/Documents/wiki"'
-alias j='vim "+VimwikiMakeDiaryNote" "+cd ~/Documents/wiki"'
+alias wiki='vim "+VimwikiIndex" "+cd ~/Dropbox/wiki"'
+alias j='vim "+VimwikiMakeDiaryNote" "+cd ~/Dropbox/wiki"'
 
 # Append input to journal
 function ja {
-    echo \* \`$(date "+%H:%M")\` - $@ >> ~/Documents/wiki/diary/$(date "+%Y-%m-%d").md
+    echo \* \`$(date "+%H:%M")\` - $@ >> ~/Dropbox/wiki/diary/$(date "+%Y-%m-%d").md
 }
 
 function jw {
-    echo \* \`$(date "+%H:%M")\` - :work: $@ >> ~/Documents/wiki/diary/$(date "+%Y-%m-%d").md
+    echo \* \`$(date "+%H:%M")\` - :work: $@ >> ~/Dropbox/wiki/diary/$(date "+%Y-%m-%d").md
 }
 
 # # Git branch
