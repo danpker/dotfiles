@@ -14,6 +14,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'michal-h21/vim-zettel'
+Plug 'chengzeyi/fzf-preview.vim'
 call plug#end()
 
 let g:black_linelength = 79
@@ -94,7 +95,8 @@ autocmd! FileType fzf set laststatus=0 noshowmode noruler
 
 nmap <leader>k :Files<CR>
 nmap <leader>m :RG<CR>
-nmap <leader>l :Tags<CR>
+nmap <leader>l :FZFTags<CR>
+nmap <leader>; :BTags<CR>
 nmap <leader>. :nohlsearch<CR>
 nmap <leader>d :ALEGoToDefinition<CR>
 nmap <leader>f :ALEFix<CR>
@@ -210,3 +212,5 @@ let wiki.auto_tags = 1
 let wiki.html_filename_parameterization = 1
 let wiki.custom_wiki2html = 'vimwiki_markdown'
 let g:vimwiki_list = [wiki]
+
+set grepprg=rg\ --vimgrep

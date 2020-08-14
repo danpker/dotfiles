@@ -16,6 +16,7 @@
         type = cat-file -t
         dump = cat-file -p
         lol = log --oneline --graph --decorate
+	ctags = !.git/hooks/ctags
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
