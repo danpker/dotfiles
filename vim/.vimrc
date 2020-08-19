@@ -1,32 +1,39 @@
 call plug#begin('~/.vim/plugged')
+Plug 'chriskempson/base16-vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'majutsushi/tagbar'
-Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-Plug 'michal-h21/vim-zettel'
 Plug 'chengzeyi/fzf-preview.vim'
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 call plug#end()
 
 let g:black_linelength = 79
 
-colorscheme gruvbox
-set background=dark
-let g:gruvbox_contrast_dark='hard'
+" font
+if has("gui_macvim")
+    " set macvim specific stuff
+    set macligatures
+    set linespace=2
+    set guifont=Pragmata\ Pro\ Mono:h15
+endif
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 if exists('+termguicolors')
   let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
+  " set termguicolors
 endif
 
 " remap jj to esc
@@ -40,14 +47,6 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
-" font
-if has("gui_macvim")
-    " set macvim specific stuff
-    set macligatures
-    set linespace=2
-    set guifont=Pragmata\ Pro\ Mono:h15
-endif
 
 " Enable syntax hilighting
 syntax enable
@@ -123,7 +122,6 @@ set backspace=indent,eol,start
 let g:airline_powerline_fonts = 1
 " Keep it there all the time
 set laststatus=2
-let g:airline_theme='wombat'
 let g:airline_right_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_left_alt_sep= ''
@@ -150,7 +148,7 @@ let g:ale_rust_cargo_use_check = 1
 " Nicer split line
 set fillchars=vert:\ ,stl:\ ,stlnc:\
 " Colours
-set termguicolors
+" set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 

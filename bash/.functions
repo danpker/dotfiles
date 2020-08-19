@@ -58,3 +58,13 @@ function memphis_stop () {
 function cb () {
     git checkout $(git branch | fzf-tmux -d 15)
 }
+
+# color stuff
+function reload_nvim {
+    for SERVER in $(nvr --serverlist); do
+        nvr -cc "source ~/.config/nvim/init.vim" --servername $SERVER &
+    done
+}
+
+alias night="base16_gruvbox-dark-soft && reload_nvim"
+alias day="base16_gruvbox-light-soft && reload_nvim"
