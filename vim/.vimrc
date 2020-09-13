@@ -12,8 +12,10 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
 Plug 'chengzeyi/fzf-preview.vim'
+Plug 'majutsushi/tagbar'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 call plug#end()
+
 
 let g:black_linelength = 79
 
@@ -22,7 +24,7 @@ if has("gui_macvim")
     " set macvim specific stuff
     set macligatures
     set linespace=2
-    set guifont=Pragmata\ Pro\ Mono:h15
+    set guifont=Pragmata\ Pro\ Mono:h13
 endif
 
 if filereadable(expand("~/.vimrc_background"))
@@ -33,7 +35,7 @@ endif
 if exists('+termguicolors')
   let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-  " set termguicolors
+  "set termguicolors
 endif
 
 " remap jj to esc
@@ -99,6 +101,7 @@ nmap <leader>; :BTags<CR>
 nmap <leader>. :nohlsearch<CR>
 nmap <leader>d :ALEGoToDefinition<CR>
 nmap <leader>f :ALEFix<CR>
+nmap <leader>t :TagbarToggle<CR>
 " enable JSX highlighting in JS files
 let g:jsx_ext_required = 0
 
