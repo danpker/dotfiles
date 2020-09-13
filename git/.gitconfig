@@ -20,8 +20,12 @@
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
+	keepBackup = false
 [mergetool]
 	prompt = false
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
