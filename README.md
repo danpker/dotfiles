@@ -26,8 +26,7 @@ If `stow` isn't available, you can just use a normal symlink.
 
 Homebrew can be installed from https://brew.sh
 
-Install a base set of packages from `brew.txt` using: 
-`<brew.txt xargs brew install`
+`brew bundle`
 
 ### Vim
 
