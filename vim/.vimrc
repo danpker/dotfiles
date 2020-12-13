@@ -10,26 +10,29 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'chengzeyi/fzf-preview.vim'
 Plug 'majutsushi/tagbar'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 
 let g:black_linelength = 79
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " font
 if has("gui_macvim")
     " set macvim specific stuff
     set macligatures
     set linespace=2
-    set guifont=Pragmata\ Pro\ Mono:h13
-endif
-
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
+    set guifont=Px437_SanyoMBC775-2Y:h20
+    colorscheme base16-apathy
+    cd ~/Dropbox/wiki
 endif
 
 if exists('+termguicolors')
@@ -133,7 +136,8 @@ let g:airline_left_sep = ''
 " VIM ALE
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
-let g:ale_python_flake8_executable = $VIRTUAL_ENV . '/bin/flake8'
+" let g:ale_python_flake8_executable = $VIRTUAL_ENV . '/bin/flake8'
+let g:ale_python_flake8_use_global = 1
 let g:ale_linters = {
 \   'python': ['flake8', 'pyls'],
 \   'rust': ['cargo', 'rls'],
