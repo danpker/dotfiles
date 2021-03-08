@@ -30,8 +30,8 @@ if has("gui_macvim")
     " set macvim specific stuff
     set macligatures
     set linespace=2
-    set guifont=Px437_SanyoMBC775-2Y:h20
-    colorscheme base16-apathy
+    set guifont=Pragmata\ Pro\ Mono:h15
+    " colorscheme base16-apathy
     cd ~/Dropbox/wiki
 endif
 
