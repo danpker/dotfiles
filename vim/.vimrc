@@ -15,7 +15,6 @@ Plug 'chengzeyi/fzf-preview.vim'
 Plug 'majutsushi/tagbar'
 call plug#end()
 
-
 let g:black_linelength = 79
 
 if filereadable(expand("~/.vimrc_background"))
@@ -28,7 +27,13 @@ if has("gui_macvim")
     " set macvim specific stuff
     set macligatures
     set linespace=2
-    set guifont=Pragmata\ Pro\ Mono:h15
+    set guifont=PragmataPro\ Mono\ Liga:h11
+    " colorscheme base16-apathy
+    cd ~/Dropbox/wiki
+endif
+" font
+if has("gui_running")
+    set guifont=PragmataPro\ Mono\ 12
     " colorscheme base16-apathy
 endif
 

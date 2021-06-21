@@ -6,7 +6,7 @@
     path = ~/work/.gitconfig
 [core]
 	excludesfile = /Users/danielparker/.gitignore_global
-	editor = vim
+	editor = nvim
 [color "diff"]
 	old = red strike
 	new = green italic
