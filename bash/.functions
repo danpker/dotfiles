@@ -68,3 +68,7 @@ function reload_nvim {
 
 alias night="base16_gruvbox-dark-soft && reload_nvim"
 alias day="base16_gruvbox-light-soft && reload_nvim"
+
+alias d-hdmi=" xrandr --output eDP-1 --off --output HDMI-1 --auto"
+alias d-laptop=" xrandr --output eDP-1 --auto --output HDMI-1 --off"
+alias d-both=" xrandr --output eDP-1 --auto --output HDMI-1 --auto"

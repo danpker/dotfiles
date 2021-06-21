@@ -14,16 +14,11 @@ magenta="\[$(tput setaf 5)\]"
 cyan="\[$(tput setaf 6)\]"
 white="\[$(tput setaf 7)\]"
 
-# Title bar - "user@host: ~"
-title="\u@\h: \w"
-titlebar="\[\033]0;"$title"\007\]"
-
 # Clear attributes
 clear_attributes="\[$(tput sgr0)\]"
 
 # Custom bash prompt - "➜  ~ (master) "
-export PS1="${titlebar}${orange}> ${blue}\W ${cyan}\$(git_branch)${clear_attributes}"
-
+export PS1="\h${orange}> ${blue}\W ${cyan}\$(git_branch)${clear_attributes}"
 # don't put duplicate lines or lines starting with space in the  history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -47,6 +42,3 @@ export FZF_DEFAULT_OPTS='
 --color info:108,prompt:109,spinner:108,pointer:168,marker:168
 '
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-
-# Give grep some colour
-export GREP_OPTIONS="--color"

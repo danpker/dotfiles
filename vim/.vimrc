@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/plugged')
-Plug 'chriskempson/base16-vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
@@ -13,24 +12,25 @@ Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'chengzeyi/fzf-preview.vim'
 Plug 'majutsushi/tagbar'
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-Plug 'junegunn/goyo.vim'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
+autocmd vimenter * ++nested colorscheme gruvbox
 
 let g:black_linelength = 79
-
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
 
 " font
 if has("gui_macvim")
     " set macvim specific stuff
     set macligatures
     set linespace=2
-    set guifont=Pragmata\ Pro\ Mono:h15
+    set guifont=PragmataPro\ Mono\ Liga:h11
+    " colorscheme base16-apathy
+    cd ~/Dropbox/wiki
+endif
+" font
+if has("gui_running")
+    set guifont=PragmataPro\ Mono\ 12
     " colorscheme base16-apathy
     cd ~/Dropbox/wiki
 endif
