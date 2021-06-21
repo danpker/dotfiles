@@ -13,8 +13,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'chengzeyi/fzf-preview.vim'
 Plug 'majutsushi/tagbar'
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-Plug 'junegunn/goyo.vim'
 call plug#end()
 
 
@@ -32,7 +30,6 @@ if has("gui_macvim")
     set linespace=2
     set guifont=Pragmata\ Pro\ Mono:h15
     " colorscheme base16-apathy
-    cd ~/Dropbox/wiki
 endif
 
 if exists('+termguicolors')
@@ -201,21 +198,5 @@ au BufRead,BufNewFile *.wiki setlocal spell
 
 let g:python_host_prog = '~/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '~/.pyenv/versions/neovim3/bin/python'
-
-" vimwiki
-let g:vimwiki_global_ext = 0
-let wiki = {'syntax': 'markdown'}
-let wiki.ext = '.md'
-let wiki.path = '~/Dropbox/wiki'
-let wiki.path_html = '~/Dropbox/wiki_html'
-let wiki.list_margin = 0
-let wiki.auto_toc = 1
-let wiki.auto_diary_index = 1
-let wiki.auto_generate_links = 1
-let wiki.auto_generate_tags = 1
-let wiki.auto_tags = 1
-let wiki.html_filename_parameterization = 1
-let wiki.custom_wiki2html = 'vimwiki_markdown'
-let g:vimwiki_list = [wiki]
 
 set grepprg=rg\ --vimgrep

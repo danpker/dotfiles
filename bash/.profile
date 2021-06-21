@@ -1,5 +1,3 @@
-source ~/.bashrc
-
 # MacOS stuff
 export PATH="/usr/local/sbin:$PATH"
 export PATH="${HOME}/.cargo/bin:$PATH"
@@ -8,6 +6,10 @@ export PATH="/usr/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+source ~/.bashrc
 
 # Homebrew
 OPENSSL_PREFIX="/usr/local/opt/openssl@1.1"
@@ -37,9 +39,4 @@ if [ -f '/Users/danielparker/google-cloud-sdk/path.bash.inc' ]; then . '/Users/d
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/danielparker/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/danielparker/google-cloud-sdk/completion.bash.inc'; fi
 
-# Python pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init - --no-rehash)"
-fi
+eval "$(pyenv init -)"

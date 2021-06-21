@@ -67,4 +67,14 @@ function reload_nvim {
 }
 
 alias night="base16_gruvbox-dark-soft && reload_nvim"
-alias day="base16_gruvbox-light-soft && reload_nvim"
+alias day="base16_gruvbox-light-soft && reload_nvim"o
+
+ssh() {
+  helper="$HOME/bin/_ssh_tmux_background"
+  command ssh \
+    -o PermitLocalCommand=yes \
+    -o LocalCommand="'$helper' '%h'" \
+    "$@"
+  "$helper"
+}
+
