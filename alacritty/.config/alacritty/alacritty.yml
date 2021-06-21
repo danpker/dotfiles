@@ -1,5 +1,5 @@
 shell:
-  program: /bin/bash
+  program: /usr/local/bin/bash
   args:
     - --login  
 font:

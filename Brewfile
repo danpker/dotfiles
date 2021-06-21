@@ -1,4 +1,5 @@
 brew "bash"
+brew "bat"
 brew "elixir"
 brew "fzf"
 brew "git"

@@ -1,17 +1,8 @@
-# Vim wiki
-alias wiki='vim "+VimwikiIndex" "+cd ~/Dropbox/wiki"'
-alias j='vim "+VimwikiMakeDiaryNote" "+cd ~/Dropbox/wiki"'
-
-# Append input to journal
-function ja {
-    echo - \`$(date "+%H:%M")\` - $@ >> ~/Dropbox/wiki/diary/$(date "+%Y-%m-%d").md
+command_exists () {
+    type "$1" &> /dev/null ;
 }
 
-function jw {
-    echo - \`$(date "+%H:%M")\` - :work: $@ >> ~/Dropbox/wiki/diary/$(date "+%Y-%m-%d").md
-}
-
-# # Git branch
+# Git branch
 git_branch() {
       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)\ /';
 }
@@ -35,35 +26,17 @@ function run_until_fail {
     done
 }
 
-# Connect to Mech via plain ssh without python wrapping it
-function mssh () {
-    temp_file=$(mktemp)
-    mech ssh-config > ${temp_file}
-    ssh -F ${temp_file} mech
-    rm ${temp_file}
-}
-
-function memphis_ip () {
-    vmrun -T fusion getGuestIPAddress "/Users/danielparker/Virtual Machines.localized/Ubuntu 64-bit Server 20.04.vmwarevm/Ubuntu 64-bit Server 20.04.vmx" -wait
-}
-
-function memphis_start () {
-    vmrun start "/Users/danielparker/Virtual Machines.localized/Ubuntu 64-bit Server 20.04.vmwarevm/Ubuntu 64-bit Server 20.04.vmx" nogui
-}
-
-function memphis_stop () {
-    vmrun stop "/Users/danielparker/Virtual Machines.localized/Ubuntu 64-bit Server 20.04.vmwarevm/Ubuntu 64-bit Server 20.04.vmx"
-}
-
 function cb () {
     git checkout $(git branch | fzf-tmux -d 15)
 }
 
 # color stuff
 function reload_nvim {
-    for SERVER in $(nvr --serverlist); do
-        nvr -cc "source ~/.config/nvim/init.vim" --servername $SERVER &
-    done
+    if command_exists nvr ; then
+        for SERVER in $(nvr --serverlist); do
+            nvr -cc "source ~/.config/nvim/init.vim" --servername $SERVER &
+        done
+    fi
 }
 
 alias night="base16_gruvbox-dark-soft && reload_nvim"
@@ -72,3 +45,10 @@ alias day="base16_gruvbox-light-soft && reload_nvim"
 alias d-hdmi=" xrandr --output eDP-1 --off --output HDMI-1 --auto"
 alias d-laptop=" xrandr --output eDP-1 --auto --output HDMI-1 --off"
 alias d-both=" xrandr --output eDP-1 --auto --output HDMI-1 --auto"
+alias vim="nvim"
+alias vi="nvim"
+alias oldvim="\vim"
+
+if command_exists docker ; then
+    alias docker-stop-all="docker stop $(docker ps -q)"
+fi

@@ -13,7 +13,3 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-alias vim="nvim"
-alias vi="nvim"
-alias oldvim="\vim"
-alias docker-stop-all="docker stop $(docker ps -q)"
