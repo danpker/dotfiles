@@ -1,0 +1,6 @@
+require('settings')
+require('plugins')
+require('mappings')
+require('telescope_options')
+require('lualine_options')
+require('lsp_options')
