@@ -1,7 +1,7 @@
-local nvim_lsp = require('lspconfig')
+local nvim_lsp = require("lspconfig")
 
 local on_attach = function(client)
-    require'completion'.on_attach(client)
+    require"completion".on_attach(client)
 end
 
 nvim_lsp.rust_analyzer.setup({
@@ -31,4 +31,7 @@ nvim_lsp.pyright.setup({
     },
 })
 
-require('lspconfig').rust_analyzer.setup{}
+nvim_lsp.efm.setup{}
+
+
+require("lspconfig").rust_analyzer.setup{}

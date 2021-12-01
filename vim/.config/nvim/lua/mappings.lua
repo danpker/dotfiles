@@ -25,3 +25,4 @@ end
 nmap('<leader>.', ':noh<cr>:call clearmatches()<cr>')
 nmap('<leader>m', '<cmd>Telescope live_grep<cr>')
 nmap('<leader>k', '<cmd>Telescope find_files<cr>')
+nmap('<leader>l', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
