@@ -1,5 +1,5 @@
-require('settings')
 require('plugins')
+require('settings')
 require('mappings')
 require('telescope_options')
 require('lualine_options')
