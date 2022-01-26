@@ -19,4 +19,6 @@ return require("packer").startup(function()
       requires = {"nvim-lua/plenary.nvim"}
     }
     use "b3nj5m1n/kommentary"
+    use "editorconfig/editorconfig-vim"
+
 end)

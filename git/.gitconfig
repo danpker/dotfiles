@@ -1,7 +1,7 @@
 [user]
 	name = Daniel Parker
 	email = dan@danpker.com
-	signingkey = C7EFAD84A69CD8AA
+	signingkey = 7ABBCDC17A712690
 [includeIf "gitdir:~/work/"]
     path = ~/work/.gitconfig
 [core]
