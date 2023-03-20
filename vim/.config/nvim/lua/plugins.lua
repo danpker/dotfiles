@@ -4,8 +4,13 @@ return require("packer").startup(function()
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate"
     }
-    use "neovim/nvim-lspconfig"
-    use "morhetz/gruvbox"
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    }
+    -- use "morhetz/gruvbox"
+    use { "ellisonleao/gruvbox.nvim" }
     use {
       "nvim-telescope/telescope.nvim",
       requires = {"nvim-lua/plenary.nvim"}
@@ -20,5 +25,8 @@ return require("packer").startup(function()
     }
     use "b3nj5m1n/kommentary"
     use "editorconfig/editorconfig-vim"
+    use "tpope/vim-fugitive"
+    use "tpope/vim-rhubarb"
+    use "tpope/vim-sleuth"
 
 end)

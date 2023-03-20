@@ -21,4 +21,3 @@ o.splitbelow = true
 o.splitright = true
 o.termguicolors = true
 o.wildmenu = true
-vim.cmd'colorscheme gruvbox'
