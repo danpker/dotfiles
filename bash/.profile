@@ -38,3 +38,4 @@ export PATH="$GO_PATH/bin:$PATH"
 if [ -f '/Users/danielparker/google-cloud-sdk/path.bash.inc' ]; then . '/Users/danielparker/google-cloud-sdk/path.bash.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/danielparker/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/danielparker/google-cloud-sdk/completion.bash.inc'; fi
+. "$HOME/.cargo/env"
