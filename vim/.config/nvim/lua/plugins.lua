@@ -28,5 +28,7 @@ return require("packer").startup(function()
     use "tpope/vim-fugitive"
     use "tpope/vim-rhubarb"
     use "tpope/vim-sleuth"
+    use { 'mhartington/formatter.nvim' }
+    use 'mfussenegger/nvim-lint'
 
 end)

@@ -4,7 +4,7 @@ local on_attach = function(client)
     require"completion".on_attach(client)
 end
 
-nvim_lsp.rust_analyzer.setup({
+--[[ nvim_lsp.rust_analyzer.setup({
     on_attach=on_attach,
     settings = {
         ["rust-analyzer"] = {
@@ -25,13 +25,10 @@ nvim_lsp.pyright.setup({
     settings = {
         python = {
             analysis = {
-                typeCheckingMode = "off",
+                typeCheckingMode = "on",
             },
         },
     },
 })
 
-nvim_lsp.efm.setup{}
-
-
-require("lspconfig").rust_analyzer.setup{}
+nvim_lsp.efm.setup{} ]]
