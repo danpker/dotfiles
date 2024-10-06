@@ -7,5 +7,4 @@ venv/
 venv3/
 .mech
 Mechfile
-tags
 target/
