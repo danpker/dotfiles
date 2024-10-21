@@ -1,7 +1,7 @@
-brew "bash"
 brew "bat"
 brew "efm-langserver"
 brew "elixir"
+brew "fish"
 brew "fzf"
 brew "git"
 brew "gnupg"
