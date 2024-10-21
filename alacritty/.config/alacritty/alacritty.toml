@@ -42,4 +42,4 @@ mods = "Alt"
 
 [shell]
 args = ["--login"]
-program = "/usr/local/bin/bash"
+program = "/opt/homebrew/bin/fish"
